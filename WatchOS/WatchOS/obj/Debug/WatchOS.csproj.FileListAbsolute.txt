@@ -1,1 +1,10 @@
 C:\Users\Ramon Valk\Dropbox\Algoritmen en datastructuren\WatchOS\WatchOS\bin\Debug\WatchOS.exe.config
+C:\Users\Jenno Vink\Documents\OODsmartWatch\WatchOS\WatchOS\bin\Debug\WatchOS.exe.config
+C:\Users\Jenno Vink\Documents\OODsmartWatch\WatchOS\WatchOS\bin\Debug\WatchOS.exe
+C:\Users\Jenno Vink\Documents\OODsmartWatch\WatchOS\WatchOS\bin\Debug\WatchOS.pdb
+C:\Users\Jenno Vink\Documents\OODsmartWatch\WatchOS\WatchOS\obj\Debug\WatchOS.csprojResolveAssemblyReference.cache
+C:\Users\Jenno Vink\Documents\OODsmartWatch\WatchOS\WatchOS\obj\Debug\WatchOS.Form1.resources
+C:\Users\Jenno Vink\Documents\OODsmartWatch\WatchOS\WatchOS\obj\Debug\WatchOS.Properties.Resources.resources
+C:\Users\Jenno Vink\Documents\OODsmartWatch\WatchOS\WatchOS\obj\Debug\WatchOS.csproj.GenerateResource.Cache
+C:\Users\Jenno Vink\Documents\OODsmartWatch\WatchOS\WatchOS\obj\Debug\WatchOS.exe
+C:\Users\Jenno Vink\Documents\OODsmartWatch\WatchOS\WatchOS\obj\Debug\WatchOS.pdb
