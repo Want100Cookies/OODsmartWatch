@@ -60,14 +60,14 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(359, 571);
+            this.button2.Location = new System.Drawing.Point(361, 571);
             this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(82, 30);
             this.button2.TabIndex = 2;
             this.button2.Text = "button 2";
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Button2Down);
+            this.button2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button2_MouseDown);
             this.button2.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Button2Up);
             // 
             // button3
