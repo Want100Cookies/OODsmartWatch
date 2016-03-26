@@ -20,11 +20,7 @@ namespace WatchOS
         private Time time;
         private Imgur imgur;
 
-        private enum Mode
-        {
-            time,
-            imgur
-        };
+        private enum Mode{time, imgur};
 
         private Mode currentMode;
         
@@ -34,6 +30,13 @@ namespace WatchOS
             time = new Time();
             imgur = new Imgur();
             currentMode = Mode.time;
+
+            updateTime();
+        }
+
+        private void updateTime()
+        {
+            labelTime.Text = time.getHours() + ":" + time.getMinutes();
         }
 
         #region ButtonEvents
@@ -102,6 +105,8 @@ namespace WatchOS
         {
             
         }
+
+
 
         #endregion
 
