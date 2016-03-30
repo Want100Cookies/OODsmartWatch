@@ -19,15 +19,13 @@ namespace WatchOS
 
         public Time()
         {
-            hours = 10;
-            minutes = 10;
+            hours = 23;
+            minutes = 12;
             InitializeComponent();
-        }
-
-        private void Time_Load(object sender, EventArgs e)
-        {
 
         }
+
+
         public String getMinutes()
         {
             return minutes.ToString();
@@ -52,26 +50,44 @@ namespace WatchOS
             }
         }
 
-        public void incrementTime()
+        private void timer1_Tick(object sender, EventArgs e)
         {
-            if(currentMode == Mode.changeHours)
-            {
-                hours++;
-            }
-            else if(currentMode == Mode.changeMinutes)
-            {
-                minutes++;
-            }
-        }
+                if (minutes > 59)
+                {
+                    minutes = 00;
+                    hours++;
+                     
+                }
+                else if (hours > 23)
+                {
+                    hours = 00;
+                }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
-            label2.Text = hours.ToString();
-        }
+            if (hours < 10)
+            {
+                label2.Text = "0" + hours.ToString();
+            }
+            else
+            {
+                label2.Text = hours.ToString();
+            }
 
-        private void label3_Click(object sender, EventArgs e)
+            if (minutes < 10)
+            {
+                label3.Text = "0" + minutes.ToString();
+
+            }
+            else
+            {
+                label3.Text = minutes.ToString();
+            }
+            minutes++;
+            }
+
+        private void Time_Load(object sender, EventArgs e)
         {
-            label3.Text = minutes.ToString();
+
         }
+    } 
     }
-}
+
