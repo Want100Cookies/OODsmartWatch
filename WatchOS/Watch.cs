@@ -7,12 +7,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Timer = System.Timers.Timer;
 
 namespace WatchOS
 {
-    public partial class Form1 : Form
+    public partial class Watch : Form
     {
-        public Form1()
+        private Time time;
+        private Imgur imgur;
+
+        enum Mode
+        {
+            time, imgur
+        }
+
+        private Mode currentMode;
+
+        private Timer button1Timer;
+        private Timer button2Timer;
+
+        public Watch()
         {
             InitializeComponent();
         }
