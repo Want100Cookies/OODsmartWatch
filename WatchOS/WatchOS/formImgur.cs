@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace WatchOS
 {
-    public partial class Form2 : Form
+    public partial class FormImgur : Form
     {
-        public Form2()
+        public FormImgur()
         {
             InitializeComponent();
         }

@@ -66,20 +66,34 @@ namespace WatchOS
             return "unknown";
         }
 
+        /// <summary>
+        /// methdode die wordt gebruikt om de tijd te verhogen wanneer deze in de 'verander modus' is
+        /// </summary>
         public void incrementTime()
         {
             if (currentMode == Mode.changeHours)
             {
                 hours++;
+
             }
             else
             {
                 minutes++;
             }
+            if (minutes > 59)
+            {
+                minutes = 0;
+                hours++;
+            }
+            if (hours > 23)
+            {
+                hours = 0;
+            }
         }
 
         public void tick()
         {
+            //dubble code: please fix wizzard
             minutes++;
             if (minutes > 59)
             {
