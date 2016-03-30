@@ -7,3 +7,5 @@ C:\Users\pasca\Documents\Visual Studio 2015\Projects\SmartWatch\WatchOS\obj\Debu
 C:\Users\pasca\Documents\Visual Studio 2015\Projects\SmartWatch\WatchOS\obj\Debug\WatchOS.csproj.GenerateResource.Cache
 C:\Users\pasca\Documents\Visual Studio 2015\Projects\SmartWatch\WatchOS\obj\Debug\WatchOS.exe
 C:\Users\pasca\Documents\Visual Studio 2015\Projects\SmartWatch\WatchOS\obj\Debug\WatchOS.pdb
+C:\Users\pasca\Documents\Visual Studio 2015\Projects\SmartWatch\WatchOS\obj\Debug\WatchOS.Imgur.resources
+C:\Users\pasca\Documents\Visual Studio 2015\Projects\SmartWatch\WatchOS\obj\Debug\WatchOS.Time.resources
