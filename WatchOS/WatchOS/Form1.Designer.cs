@@ -30,26 +30,39 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.labelTime = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button1Timer = new System.Windows.Forms.Timer(this.components);
             this.button2Timer = new System.Windows.Forms.Timer(this.components);
             this.doubleClickTimer = new System.Windows.Forms.Timer(this.components);
-            this.labelTime = new System.Windows.Forms.Label();
             this.pictureBoxWordArt = new System.Windows.Forms.PictureBox();
+            this.timerKlok = new System.Windows.Forms.Timer(this.components);
+            this.labelStatus = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxWordArt)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.labelStatus);
             this.panel1.Controls.Add(this.labelTime);
             this.panel1.Location = new System.Drawing.Point(119, 122);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(596, 398);
             this.panel1.TabIndex = 0;
+            // 
+            // labelTime
+            // 
+            this.labelTime.AutoSize = true;
+            this.labelTime.Font = new System.Drawing.Font("Comic Sans MS", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTime.Location = new System.Drawing.Point(107, 70);
+            this.labelTime.Name = "labelTime";
+            this.labelTime.Size = new System.Drawing.Size(398, 167);
+            this.labelTime.TabIndex = 0;
+            this.labelTime.Text = "00:00";
             // 
             // button1
             // 
@@ -100,16 +113,6 @@
             this.doubleClickTimer.Interval = 180;
             this.doubleClickTimer.Tick += new System.EventHandler(this.doubleClickTimer_Tick);
             // 
-            // labelTime
-            // 
-            this.labelTime.AutoSize = true;
-            this.labelTime.Font = new System.Drawing.Font("Comic Sans MS", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTime.Location = new System.Drawing.Point(107, 70);
-            this.labelTime.Name = "labelTime";
-            this.labelTime.Size = new System.Drawing.Size(398, 167);
-            this.labelTime.TabIndex = 0;
-            this.labelTime.Text = "00:00";
-            // 
             // pictureBoxWordArt
             // 
             this.pictureBoxWordArt.Image = global::WatchOS.Properties.Resources.wordArt;
@@ -120,6 +123,21 @@
             this.pictureBoxWordArt.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxWordArt.TabIndex = 1;
             this.pictureBoxWordArt.TabStop = false;
+            // 
+            // timerKlok
+            // 
+            this.timerKlok.Enabled = true;
+            this.timerKlok.Interval = 1000;
+            this.timerKlok.Tick += new System.EventHandler(this.timerKlok_Tick);
+            // 
+            // labelStatus
+            // 
+            this.labelStatus.AutoSize = true;
+            this.labelStatus.Location = new System.Drawing.Point(132, 26);
+            this.labelStatus.Name = "labelStatus";
+            this.labelStatus.Size = new System.Drawing.Size(103, 17);
+            this.labelStatus.TabIndex = 1;
+            this.labelStatus.Text = "Showing time...";
             // 
             // Form1
             // 
@@ -152,6 +170,8 @@
         private System.Windows.Forms.Timer doubleClickTimer;
         private System.Windows.Forms.Label labelTime;
         private System.Windows.Forms.PictureBox pictureBoxWordArt;
+        private System.Windows.Forms.Timer timerKlok;
+        private System.Windows.Forms.Label labelStatus;
     }
 }
 

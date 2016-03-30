@@ -93,7 +93,22 @@ namespace WatchOS
 
         private void buttonShort(int buttonNo)
         {
+            if (currentMode == Mode.time)
+            {
+                switch (buttonNo)
+                {
+                    case 1:
+                        time.incrementTime();
+                        updateTime();
+                        break;
+                    case 2:
+                        time.changeTimeMode();
+                        break;
+                    default:
+                        throw new NotImplementedException("Fout in switch case statement: switch buttonNo");
+                }
 
+            }
         }
 
         private void buttonLong(int buttonNo)
@@ -136,7 +151,23 @@ namespace WatchOS
 
 
             //   System.Diagnostics.Debug.WriteLine("timer reset");
-        } 
+        }
+
+        private void timerKlok_Tick(object sender, EventArgs e)
+        {
+            clockTick();
+        }
+
+        /// <summary>
+        /// Methode die wordt aangeroepen als er een minuut is verstreken.
+        /// </summary>
+        private void clockTick()
+        {
+            time.tick();
+            updateTime();
+        }
         #endregion
+
+
     }
 }

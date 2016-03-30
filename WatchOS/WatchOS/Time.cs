@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Runtime.Remoting.Channels;
 using System.Text;
@@ -47,7 +48,8 @@ namespace WatchOS
                     currentMode = Mode.view;
                     break;
             }
-         }
+            Debug.WriteLine("Current mode switched to: " + currentMode.ToString());
+        }
 
         //this is a bit.....
         public String getMode()
@@ -73,6 +75,20 @@ namespace WatchOS
             else
             {
                 minutes++;
+            }
+        }
+
+        public void tick()
+        {
+            minutes++;
+            if (minutes > 59)
+            {
+                minutes = 0;
+                hours++;
+            }
+            if (hours > 23)
+            {
+                hours = 0;
             }
         }
     }
