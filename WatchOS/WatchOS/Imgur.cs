@@ -8,13 +8,16 @@ namespace WatchOS
 {
     class Imgur
     {
-        LinkedList<Post> posts;
-        LinkedListNode<Post> currentPost;
-        bool favoritesModeOn;
+        private LinkedList<Post> posts;
+        private LinkedListNode<Post> currentPost;
+        private bool favoritesModeOn;
 
         //Constructor
         public Imgur()
         {
+            posts = new LinkedList<Post>();
+            currentPost = new LinkedListNode<Post>(new Post());
+            favoritesModeOn = new bool();
 
         }
 
