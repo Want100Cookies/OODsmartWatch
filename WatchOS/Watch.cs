@@ -127,15 +127,21 @@ namespace WatchOS
 
         public void button2Up(object sender, MouseEventArgs e)
         {
-            button2Stopwatch.Stop();
+            button2Clicks++;
 
-            if (button2Stopwatch.ElapsedMilliseconds >= 200)
+            if (button2Stopwatch.ElapsedMilliseconds >= 500)
             {
                 buttonLong(2);
+                button2Stopwatch.Stop();
+                button2Stopwatch.Reset();
+                button2Clicks = 0;
             }
-            else
+            else if (button2Stopwatch.ElapsedMilliseconds >= 100)
             {
                 buttonShort(2);
+                button2Stopwatch.Stop();
+                button2Stopwatch.Reset();
+                button2Clicks = 0;
             }
         }
 
@@ -163,21 +169,21 @@ namespace WatchOS
                 case 1:
                     if (currentMode == Mode.time)
                     {
-                        
+                        time.changeTimeMode();
                     }
                     else
                     {
-                        
+                        //imgur.nextPost();
                     }
                     break;
                 case 2:
                     if (currentMode == Mode.time)
                     {
-                        
+                        time.incrementTime();
                     }
                     else
                     {
-                        
+                        //imgur.previousPost();
                     }
                     break;
             }
@@ -186,27 +192,18 @@ namespace WatchOS
         private void buttonLong(int buttonNo)
         {
             Console.WriteLine("Button " + buttonNo + " long");
+            if (currentMode != Mode.imgur)
+            {
+                return;
+            }
+
             switch (buttonNo)
             {
                 case 1:
-                    if (currentMode == Mode.time)
-                    {
-
-                    }
-                    else
-                    {
-
-                    }
+                    //imgur.favouriteCurrentPost();
                     break;
                 case 2:
-                    if (currentMode == Mode.time)
-                    {
-
-                    }
-                    else
-                    {
-
-                    }
+                    //imgur.viewFavouritePost();
                     break;
             }
         }
@@ -214,6 +211,20 @@ namespace WatchOS
         private void buttonTwice(int buttonNo)
         {
             Console.WriteLine("Button " + buttonNo + " twice");
+            if (currentMode != Mode.imgur)
+            {
+                return;
+            }
+
+            switch (buttonNo)
+            {
+                case 1:
+                    //imgur.upvoteCurrentPost();
+                    break;
+                case 2:
+                    //imgur.downvoteCurrentPost();
+                    break;
+            }
         }
 
         public void buttonBoth(object sender, MouseEventArgs e)

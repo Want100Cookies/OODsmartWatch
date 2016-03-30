@@ -22,7 +22,8 @@ namespace WatchOS
             hours = 23;
             minutes = 12;
             InitializeComponent();
-
+            currentMode = Mode.changeMinutes;
+            changeTimeMode();
         }
 
 
@@ -30,38 +31,60 @@ namespace WatchOS
         {
             return minutes.ToString();
         }
+
         public String getHours()
         {
             return hours.ToString();
         }
+
         public void changeTimeMode()
         {
             if(currentMode == Mode.changeHours)
             {
                 currentMode = Mode.changeMinutes;
+                lblCurrentMode.Text = "Change minutes";
             }
             else if(currentMode == Mode.changeMinutes)
             {
                 currentMode = Mode.view;
+                lblCurrentMode.Text = "View";
             }
             else if (currentMode == Mode.view)
             {
                 currentMode = Mode.changeHours;
+                lblCurrentMode.Text = "Change hours";
             }
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-                if (minutes > 59)
-                {
-                    minutes = 00;
-                    hours++;
-                     
-                }
-                else if (hours > 23)
-                {
-                    hours = 00;
-                }
+            incrementMinutes();
+        }
+
+        private void Time_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        public void incrementTime()
+        {
+            if (currentMode == Mode.changeHours)
+            {
+                incrementHours();
+            } else if (currentMode == Mode.changeMinutes)
+            {
+                incrementMinutes();
+            }
+        }
+
+        private void incrementHours()
+        {
+            hours++;
+
+            if (hours > 23)
+            {
+                hours = 00;
+            }
 
             if (hours < 10)
             {
@@ -70,6 +93,17 @@ namespace WatchOS
             else
             {
                 label2.Text = hours.ToString();
+            }
+        }
+
+        private void incrementMinutes()
+        {
+            minutes++; 
+
+            if (minutes > 59)
+            {
+                minutes = 00;
+                incrementHours();
             }
 
             if (minutes < 10)
@@ -81,13 +115,7 @@ namespace WatchOS
             {
                 label3.Text = minutes.ToString();
             }
-            minutes++;
-            }
-
-        private void Time_Load(object sender, EventArgs e)
-        {
-
         }
     } 
-    }
+}
 
