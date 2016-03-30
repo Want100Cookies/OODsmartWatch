@@ -20,6 +20,9 @@ namespace WatchOS
         private Time time;
         private Imgur imgur;
 
+        //note: extra veld!
+        private int lastClicked = 0;
+
         private enum Mode{time, imgur};
 
         private Mode currentMode;
@@ -46,11 +49,27 @@ namespace WatchOS
 
         private void Button1Down(object sender, MouseEventArgs e)
         {
+            lastClicked = 1;
             button1Timer.Enabled = true;
+
+            if (doubleClickTimer.Enabled)
+            {
+                //timer staat al aan: doubleclicked!
+                Debug.WriteLine("double clicked btn 1");
+                buttonTwice(1);
+                doubleClickTimer.Stop();
+                doubleClickTimer.Enabled = false;
+                button1Timer.Enabled = false;
+            }
+            else
+            {
+                doubleClickTimer.Enabled = true;
+            }
         }
 
         private void button2_MouseDown(object sender, MouseEventArgs e)
         {
+            lastClicked = 2;
             button2Timer.Enabled = true;
 
             if (doubleClickTimer.Enabled)
@@ -70,11 +89,11 @@ namespace WatchOS
 
         private void Button1Up(object sender, MouseEventArgs e)
         {
-            if (button1Timer.Enabled)
-            {
-                Debug.WriteLine("normal clicked button 1");
-                buttonShort(1);
-            }
+            //if (button1Timer.Enabled)
+            //{
+            //    Debug.WriteLine("normal clicked button 1");
+            //    buttonShort(1);
+            //}
 
             button1Timer.Enabled = false;
         }
@@ -133,10 +152,12 @@ namespace WatchOS
                 switch (buttonNo)
                 {
                     case 1:
-                        changeWatchMode();
+                        imgur.nextPost();
+                        Debug.WriteLine("imgur: next post");
                         break;
                     case 2:
-                        time.changeTimeMode();
+                        imgur.previousPost();
+                        Debug.WriteLine("imgur: previous post");
                         break;
                     default:
                         throw new NotImplementedException("Fout in switch case statement: switch buttonNo");
@@ -146,19 +167,39 @@ namespace WatchOS
 
         private void buttonLong(int buttonNo)
         {
-            switch (buttonNo)
+            if (currentMode == Mode.imgur)
             {
-                case 1:
-                    break;
-                case 2:
-                    break;
+                switch (buttonNo)
+                {
+                    case 1:
+                        imgur.viewFavoritePosts();
+                        Debug.WriteLine("imgur: view favorite post");
+                        break;
+                    case 2:
+                        imgur.favoriteCurrentPost();
+                        Debug.WriteLine("imgur: fav current post");
+                        break;
+                }
             }
-
         }
 
         private void buttonTwice(int buttonNo)
         {
-            
+            if (currentMode == Mode.imgur)
+            {
+                switch (buttonNo)
+                {
+                    case 1:
+                        imgur.upvoteCurrentPost();
+                        Debug.WriteLine("imgur: upvote current image");
+                        break;
+                    case 2:
+                        imgur.downvoteCurrentPost();
+                        Debug.WriteLine("imgur: downvote current image");
+
+                        break;
+                }
+            }
         }
 
 
@@ -183,10 +224,14 @@ namespace WatchOS
         private void doubleClickTimer_Tick(object sender, EventArgs e)
         {
             doubleClickTimer.Enabled = false;
-            if (!button2Timer.Enabled)
+            if (!button2Timer.Enabled && lastClicked == 2)
             {
                 System.Diagnostics.Debug.WriteLine("clicked button 2");
                 buttonShort(2);
+            } else if (!button1Timer.Enabled && lastClicked == 1)
+            {
+                System.Diagnostics.Debug.WriteLine("clicked button 1");
+                buttonShort(1);
             }
             //   System.Diagnostics.Debug.WriteLine("timer reset");
         }
