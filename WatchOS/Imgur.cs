@@ -15,7 +15,6 @@ namespace WatchOS
 {
     public partial class Imgur : Form
     {
-        new LinkedList LinkedList<Post> posts 
 
         public void loadPosts()
         {
@@ -27,7 +26,6 @@ namespace WatchOS
             Console.WriteLine("is geladen");
             foreach (var image in images)
             {
-                imgurScreen.Image = image.
                 Console.WriteLine(image.Score);
             }
         }

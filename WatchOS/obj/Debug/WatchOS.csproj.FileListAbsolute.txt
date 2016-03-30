@@ -20,3 +20,17 @@ C:\Users\pasca\Documents\Visual Studio 2015\Projects\SmartWatch\WatchOS\obj\Debu
 C:\Users\pasca\Documents\Visual Studio 2015\Projects\SmartWatch\WatchOS\obj\Debug\WatchOS.csproj.GenerateResource.Cache
 C:\Users\pasca\Documents\Visual Studio 2015\Projects\SmartWatch\WatchOS\obj\Debug\WatchOS.exe
 C:\Users\pasca\Documents\Visual Studio 2015\Projects\SmartWatch\WatchOS\obj\Debug\WatchOS.pdb
+C:\Users\Lesley\Documents\OODsmartWatch\WatchOS\bin\Debug\WatchOS.exe.config
+C:\Users\Lesley\Documents\OODsmartWatch\WatchOS\obj\Debug\WatchOS.exe
+C:\Users\Lesley\Documents\OODsmartWatch\WatchOS\obj\Debug\WatchOS.pdb
+C:\Users\Lesley\Documents\OODsmartWatch\WatchOS\obj\Debug\WatchOS.csprojResolveAssemblyReference.cache
+C:\Users\Lesley\Documents\OODsmartWatch\WatchOS\obj\Debug\WatchOS.Imgur.resources
+C:\Users\Lesley\Documents\OODsmartWatch\WatchOS\obj\Debug\WatchOS.Properties.Resources.resources
+C:\Users\Lesley\Documents\OODsmartWatch\WatchOS\obj\Debug\WatchOS.Watch.resources
+C:\Users\Lesley\Documents\OODsmartWatch\WatchOS\obj\Debug\WatchOS.csproj.GenerateResource.Cache
+C:\Users\Lesley\Documents\OODsmartWatch\WatchOS\bin\Debug\WatchOS.exe
+C:\Users\Lesley\Documents\OODsmartWatch\WatchOS\bin\Debug\WatchOS.pdb
+C:\Users\Lesley\Documents\OODsmartWatch\WatchOS\bin\Debug\Imgur.API.dll
+C:\Users\Lesley\Documents\OODsmartWatch\WatchOS\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Lesley\Documents\OODsmartWatch\WatchOS\bin\Debug\Imgur.API.xml
+C:\Users\Lesley\Documents\OODsmartWatch\WatchOS\bin\Debug\Newtonsoft.Json.xml
