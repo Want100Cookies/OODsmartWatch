@@ -8,13 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace WatchOS
 {
     public partial class Imgur : Form
     {
-        public Imgur()
-        {
-            InitializeComponent();
-        }
+
     }
 }
