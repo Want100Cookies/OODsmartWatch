@@ -28,37 +28,38 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.imgurScreen = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.imgurScreen)).BeginInit();
+            this.pictureBoxImage = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxImage)).BeginInit();
             this.SuspendLayout();
             // 
-            // imgurScreen
+            // pictureBoxImage
             // 
-            this.imgurScreen.Location = new System.Drawing.Point(-4, -2);
-            this.imgurScreen.Name = "imgurScreen";
-            this.imgurScreen.Size = new System.Drawing.Size(378, 307);
-            this.imgurScreen.TabIndex = 0;
-            this.imgurScreen.TabStop = false;
+            this.pictureBoxImage.Location = new System.Drawing.Point(0, 0);
+            this.pictureBoxImage.Name = "pictureBoxImage";
+            this.pictureBoxImage.Size = new System.Drawing.Size(473, 301);
+            this.pictureBoxImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBoxImage.TabIndex = 0;
+            this.pictureBoxImage.TabStop = false;
             // 
             // Imgur
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(371, 305);
-            this.Controls.Add(this.imgurScreen);
+            this.ClientSize = new System.Drawing.Size(474, 302);
+            this.Controls.Add(this.pictureBoxImage);
             this.Location = new System.Drawing.Point(300, 50);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Imgur";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "L";
             this.Load += new System.EventHandler(this.Imgur_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.imgurScreen)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxImage)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.PictureBox imgurScreen;
+        private System.Windows.Forms.PictureBox pictureBoxImage;
     }
 }

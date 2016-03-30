@@ -59,6 +59,7 @@
     <Compile Include="Imgur.Designer.cs">
       <DependentUpon>Imgur.cs</DependentUpon>
     </Compile>
+    <Compile Include="Post.cs" />
     <Compile Include="Time.cs">
       <SubType>Form</SubType>
     </Compile>
