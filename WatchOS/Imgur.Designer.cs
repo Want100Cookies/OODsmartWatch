@@ -28,9 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // Imgur
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(278, 244);
+            this.Location = new System.Drawing.Point(300, 50);
+            this.Name = "Imgur";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Imgur";
+            this.ResumeLayout(false);
+
         }
 
         #endregion

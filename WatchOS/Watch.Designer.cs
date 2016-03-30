@@ -45,6 +45,8 @@
             this.btn1.TabIndex = 0;
             this.btn1.Text = "Button 1";
             this.btn1.UseVisualStyleBackColor = true;
+            this.btn1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button1Down);
+            this.btn1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.button1Up);
             // 
             // btn2
             // 
@@ -57,6 +59,8 @@
             this.btn2.TabIndex = 0;
             this.btn2.Text = "Button 2";
             this.btn2.UseVisualStyleBackColor = true;
+            this.btn2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button2Down);
+            this.btn2.MouseUp += new System.Windows.Forms.MouseEventHandler(this.button2Up);
             // 
             // btnBoth
             // 
@@ -69,6 +73,7 @@
             this.btnBoth.TabIndex = 0;
             this.btnBoth.Text = "Both buttons";
             this.btnBoth.UseVisualStyleBackColor = true;
+            this.btnBoth.MouseClick += new System.Windows.Forms.MouseEventHandler(this.buttonBoth);
             // 
             // btnExit
             // 
@@ -81,6 +86,7 @@
             this.btnExit.TabIndex = 0;
             this.btnExit.Text = "Exit";
             this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // Watch
             // 
@@ -92,8 +98,10 @@
             this.Controls.Add(this.btn2);
             this.Controls.Add(this.btn1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Location = new System.Drawing.Point(50, 50);
             this.MaximizeBox = false;
             this.Name = "Watch";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "WatchOS";
             this.TopMost = true;
             this.ResumeLayout(false);
