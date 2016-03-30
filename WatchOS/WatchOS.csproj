@@ -75,6 +75,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Time.resx">
+      <DependentUpon>Time.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Watch.resx">
       <DependentUpon>Watch.cs</DependentUpon>
     </EmbeddedResource>
