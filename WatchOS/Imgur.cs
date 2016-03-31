@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -17,8 +18,8 @@ namespace WatchOS
 {
     public partial class Imgur : Form
     {
-        private List<Post> posts = new List<Post>();
-        private Post currentPost;
+        private LinkedList<Post> posts = new LinkedList<Post>();
+        private LinkedListNode<Post> currentPost;
         private bool favauritesModeOn;
 
         public void loadPosts()
@@ -37,7 +38,7 @@ namespace WatchOS
                 if (image.GetType() == typeof (GalleryImage))
                 {
                     var img = (GalleryImage) image;
-                    posts.Add(new Post(img.Id));
+                    posts.AddFirst(new Post(img.Id));
                     Console.WriteLine(img.Id.ToString());
 
                 }
@@ -46,15 +47,18 @@ namespace WatchOS
                     var album = (GalleryAlbum) image;
                     foreach (var albm in album.Images)
                     {
-                        posts.Add(new Post(albm.Id));
+                        posts.AddFirst(new Post(albm.Id));
                         Console.WriteLine("Album image found:" + albm.Id);
 
                     }
                 }
 
             }
+            currentPost = new LinkedListNode<Post>(posts.First.Value);
 
-            currentPost = posts[0];
+            Debug.WriteLine("1e value in de linkedlist: " + posts.First.Value.getUrl());
+            Debug.WriteLine("current value in de linkedlistnode: " + currentPost.Value.getUrl());
+
             updatePicture();
 
         }
@@ -67,8 +71,7 @@ namespace WatchOS
         public Imgur()
         {
             loadPosts();
-            var test = currentPost.getUrl();
-            MessageBox.Show(currentPost.getUrl());
+            Debug.WriteLine(currentPost.Value.getUrl());
         }
 
         public void viewFavouritePosts()
@@ -78,44 +81,49 @@ namespace WatchOS
 
         public void nextPost()
         {
-            //note check of niet laatste element.
-            if (posts.IndexOf(currentPost) < posts.Count)
-            {
-                currentPost = posts[posts.IndexOf(currentPost) + 1];
-            }
+            currentPost = currentPost.Next;
+            Debug.WriteLine(currentPost);
+            updatePicture();
         }
 
         public void previousPost()
         {
-            if (posts.IndexOf(currentPost) > 0)
-            {
-                currentPost = posts[posts.IndexOf(currentPost) - 1];
-            }
+            currentPost = currentPost.Previous;
+            updatePicture();
         }
 
         public void updatePicture()
         {
             //pictureBoxImage.Load(currentPost.getUrl());
-            pictureBoxImage.Load("http://i.imgur.com/qHRX6.png");
+            //pictureBoxImage.Load("http://i.imgur.com/qHRX6.png"); //note: dit geeft al een error
+            this.Controls.Clear();
+            PictureBox p = new PictureBox();
+            p.Location = new Point(0, 0);
+            p.Width = 473;
+            p.Height = 301;
+            p.SizeMode = PictureBoxSizeMode.Zoom;
+            Debug.WriteLine(currentPost.Value.getUrl());
+            //p.Load(currentPost.Value.getUrl());
+            this.Controls.Add(p);
         }
 
         public Post getCurrentPost()
         {
-            return currentPost;
+            return currentPost.Value;
         }
 
         public void upvoteCurrentPost()
         {
-            currentPost.upvote();
+            currentPost.Value.upvote();
         }
 
         public void downvoteCurrentPost()
         {
-            currentPost.downvote();
+            currentPost.Value.downvote();
         }
         public void favouriteCurrentPost()
         {
-         currentPost.favourite();   
+         currentPost.Value.favourite();   
         }
     }
 }

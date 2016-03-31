@@ -173,7 +173,7 @@ namespace WatchOS
                     }
                     else
                     {
-                        //imgur.nextPost();
+                        imgur.nextPost();
                     }
                     break;
                 case 2:
@@ -183,7 +183,7 @@ namespace WatchOS
                     }
                     else
                     {
-                        //imgur.previousPost();
+                        imgur.previousPost();
                     }
                     break;
             }
@@ -200,10 +200,10 @@ namespace WatchOS
             switch (buttonNo)
             {
                 case 1:
-                    //imgur.favouriteCurrentPost();
+                    imgur.favouriteCurrentPost();
                     break;
                 case 2:
-                    //imgur.viewFavouritePost();
+                    imgur.viewFavouritePosts();
                     break;
             }
         }
@@ -219,10 +219,10 @@ namespace WatchOS
             switch (buttonNo)
             {
                 case 1:
-                    //imgur.upvoteCurrentPost();
+                    imgur.upvoteCurrentPost();
                     break;
                 case 2:
-                    //imgur.downvoteCurrentPost();
+                    imgur.downvoteCurrentPost();
                     break;
             }
         }
