@@ -22,56 +22,40 @@ namespace WatchOS
         private LinkedListNode<Post> currentPost;
         private bool favauritesModeOn;
 
-        public void loadPosts()
+        public Imgur()
         {
-            //hip hip horray!
-            //1: alle id's verzamelen
-            //2: http://i.imgur.com/id.png
+            InitializeComponent();
+        }
+
+        public async void LoadPosts()
+        {
             var client = new ImgurClient("749421e4eed8f22", "87f3637908d8c0fa86c567db9e447ad166a9abdb");
             var endpoint = new GalleryEndpoint(client);
-            var task = endpoint.GetGalleryAsync();
-            Task.WaitAll(task);
-            var images = task.Result;
-            Console.WriteLine("is geladen");
+            var images = await endpoint.GetGalleryAsync();
+
             foreach (var image in images)
             {
-                if (image.GetType() == typeof (GalleryImage))
+                if (image.GetType() == typeof(GalleryImage))
                 {
-                    var img = (GalleryImage) image;
-                    posts.AddFirst(new Post(img.Id));
-                    Console.WriteLine(img.Id.ToString());
-
+                    var img = (GalleryImage)image;
+                    var post = new Post(img.Id);
+                    posts.AddLast(post);
                 }
                 else
                 {
-                    var album = (GalleryAlbum) image;
+                    var album = (GalleryAlbum)image;
                     foreach (var albm in album.Images)
                     {
-                        posts.AddFirst(new Post(albm.Id));
+                        posts.AddLast(new Post(albm.Id));
                         Console.WriteLine("Album image found:" + albm.Id);
 
                     }
                 }
 
             }
-            currentPost = new LinkedListNode<Post>(posts.First.Value);
-
-            Debug.WriteLine("1e value in de linkedlist: " + posts.First.Value.getUrl());
-            Debug.WriteLine("current value in de linkedlistnode: " + currentPost.Value.getUrl());
+            currentPost = posts.First;
 
             updatePicture();
-
-        }
-
-        private void Imgur_Load(object sender, EventArgs e)
-        {
-            loadPosts();
-        }
-
-        public Imgur()
-        {
-            loadPosts();
-            Debug.WriteLine(currentPost.Value.getUrl());
         }
 
         public void viewFavouritePosts()
@@ -82,29 +66,45 @@ namespace WatchOS
         public void nextPost()
         {
             currentPost = currentPost.Next;
-            Debug.WriteLine(currentPost);
+
+            if (currentPost == null)
+            {
+                currentPost = posts.First;
+            }
+
             updatePicture();
         }
 
         public void previousPost()
         {
             currentPost = currentPost.Previous;
+
+            if (currentPost == null)
+            {
+                currentPost = posts.Last;
+            }
             updatePicture();
         }
 
         public void updatePicture()
         {
-            //pictureBoxImage.Load(currentPost.getUrl());
-            //pictureBoxImage.Load("http://i.imgur.com/qHRX6.png"); //note: dit geeft al een error
-            this.Controls.Clear();
-            PictureBox p = new PictureBox();
-            p.Location = new Point(0, 0);
-            p.Width = 473;
-            p.Height = 301;
-            p.SizeMode = PictureBoxSizeMode.Zoom;
-            Debug.WriteLine(currentPost.Value.getUrl());
-            //p.Load(currentPost.Value.getUrl());
-            this.Controls.Add(p);
+            pictureBoxImage.Image = null;
+            pictureBoxImage.LoadAsync(currentPost.Value.getUrl());
+
+            switch (currentPost.Value.getVoteStatus())
+            {
+                case 1:
+                    lblVote.Text = "Status: Upvoted!";
+                    break;
+                case -1:
+                    lblVote.Text = "Status: Downvoted!";
+                    break;
+                default:
+                    lblVote.Text = "Status: neutral";
+                    break;
+            }
+
+            Console.WriteLine(currentPost.Value.getUrl());
         }
 
         public Post getCurrentPost()
@@ -115,15 +115,42 @@ namespace WatchOS
         public void upvoteCurrentPost()
         {
             currentPost.Value.upvote();
+
+            switch (currentPost.Value.getVoteStatus())
+            {
+                case 1:
+                    lblVote.Text = "Status: Upvoted!";
+                    break;
+                case -1:
+                    lblVote.Text = "Status: Downvoted!";
+                    break;
+                default:
+                    lblVote.Text = "Status: neutral";
+                    break;
+            }
         }
 
         public void downvoteCurrentPost()
         {
             currentPost.Value.downvote();
+
+            switch (currentPost.Value.getVoteStatus())
+            {
+                case 1:
+                    lblVote.Text = "Status: Upvoted!";
+                    break;
+                case -1:
+                    lblVote.Text = "Status: Downvoted!";
+                    break;
+                default:
+                    lblVote.Text = "Status: neutral";
+                    break;
+            }
         }
+
         public void favouriteCurrentPost()
         {
-         currentPost.Value.favourite();   
+            currentPost.Value.favourite();
         }
     }
 }

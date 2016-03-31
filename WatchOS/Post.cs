@@ -3,20 +3,22 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace WatchOS
 {
-    public partial class Post
+    public class Post
     {
-        private string id;
+        public string id;
         private int voteStatus;
         private bool isFavourite;
 
-        public Post(String id)
+        public Post(string id)
         {
             this.id = id;
         }
@@ -26,32 +28,24 @@ namespace WatchOS
             return "http://i.imgur.com/" + id + ".png";
         }
 
-        public string getFilePath()
-        {
-            //wat is dit?
-            return "404";
-        }
-
         public void upvote()
         {
-            voteStatus = 1;
+            voteStatus = voteStatus == 1 ? 0 : 1;
         }
 
         public void downvote()
         {
-            voteStatus = -1;
+            voteStatus = voteStatus == -1 ? 0 : -1;
         }
 
         public void favourite()
         {
-
+            isFavourite = isFavourite != true;
         }
 
         public int getVoteStatus()
         {
             return voteStatus;
         }
-
-
     }
 }

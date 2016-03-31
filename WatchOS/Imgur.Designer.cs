@@ -29,29 +29,40 @@
         private void InitializeComponent()
         {
             this.pictureBoxImage = new System.Windows.Forms.PictureBox();
+            this.lblVote = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxImage)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBoxImage
             // 
-            this.pictureBoxImage.Location = new System.Drawing.Point(0, 0);
+            this.pictureBoxImage.Location = new System.Drawing.Point(12, 13);
+            this.pictureBoxImage.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBoxImage.Name = "pictureBoxImage";
-            this.pictureBoxImage.Size = new System.Drawing.Size(473, 301);
-            this.pictureBoxImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBoxImage.Size = new System.Drawing.Size(800, 800);
+            this.pictureBoxImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxImage.TabIndex = 0;
             this.pictureBoxImage.TabStop = false;
             // 
+            // lblVote
+            // 
+            this.lblVote.AutoSize = true;
+            this.lblVote.Location = new System.Drawing.Point(834, 57);
+            this.lblVote.Name = "lblVote";
+            this.lblVote.Size = new System.Drawing.Size(0, 20);
+            this.lblVote.TabIndex = 1;
+            // 
             // Imgur
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(474, 302);
+            this.ClientSize = new System.Drawing.Size(1023, 834);
+            this.Controls.Add(this.lblVote);
             this.Controls.Add(this.pictureBoxImage);
             this.Location = new System.Drawing.Point(300, 50);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Imgur";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "L";
-            this.Load += new System.EventHandler(this.Imgur_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxImage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -61,5 +72,6 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBoxImage;
+        private System.Windows.Forms.Label lblVote;
     }
 }

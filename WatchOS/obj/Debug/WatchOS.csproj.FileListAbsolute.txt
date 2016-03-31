@@ -15,7 +15,6 @@ C:\Users\pasca\Documents\Visual Studio 2015\Projects\SmartWatch\WatchOS\bin\Debu
 C:\Users\pasca\Documents\Visual Studio 2015\Projects\SmartWatch\WatchOS\obj\Debug\WatchOS.csprojResolveAssemblyReference.cache
 C:\Users\pasca\Documents\Visual Studio 2015\Projects\SmartWatch\WatchOS\obj\Debug\WatchOS.Imgur.resources
 C:\Users\pasca\Documents\Visual Studio 2015\Projects\SmartWatch\WatchOS\obj\Debug\WatchOS.Properties.Resources.resources
-C:\Users\pasca\Documents\Visual Studio 2015\Projects\SmartWatch\WatchOS\obj\Debug\WatchOS.Time.resources
 C:\Users\pasca\Documents\Visual Studio 2015\Projects\SmartWatch\WatchOS\obj\Debug\WatchOS.Watch.resources
 C:\Users\pasca\Documents\Visual Studio 2015\Projects\SmartWatch\WatchOS\obj\Debug\WatchOS.csproj.GenerateResource.Cache
 C:\Users\pasca\Documents\Visual Studio 2015\Projects\SmartWatch\WatchOS\obj\Debug\WatchOS.exe
@@ -48,3 +47,7 @@ C:\Users\Jenno Vink\Documents\OODsmartWatch\WatchOS\obj\Debug\WatchOS.Imgur.reso
 C:\Users\Jenno Vink\Documents\OODsmartWatch\WatchOS\obj\Debug\WatchOS.Properties.Resources.resources
 C:\Users\Jenno Vink\Documents\OODsmartWatch\WatchOS\obj\Debug\WatchOS.Watch.resources
 C:\Users\Jenno Vink\Documents\OODsmartWatch\WatchOS\obj\Debug\WatchOS.csproj.GenerateResource.Cache
+C:\Users\pasca\Documents\Visual Studio 2015\Projects\SmartWatch\WatchOS\bin\Debug\Imgur.API.dll
+C:\Users\pasca\Documents\Visual Studio 2015\Projects\SmartWatch\WatchOS\bin\Debug\Newtonsoft.Json.dll
+C:\Users\pasca\Documents\Visual Studio 2015\Projects\SmartWatch\WatchOS\bin\Debug\Imgur.API.xml
+C:\Users\pasca\Documents\Visual Studio 2015\Projects\SmartWatch\WatchOS\bin\Debug\Newtonsoft.Json.xml

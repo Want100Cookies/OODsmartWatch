@@ -71,7 +71,7 @@ namespace WatchOS
 
             imgur = new Imgur(); // Load imgur on background
             imgur.Hide();
-            //imgur.LoadPosts();
+            imgur.LoadPosts();
         }
 
         public void button1Down(object sender, MouseEventArgs e)
