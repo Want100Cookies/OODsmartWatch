@@ -26,17 +26,6 @@ namespace WatchOS
             changeTimeMode();
         }
 
-
-        public String getMinutes()
-        {
-            return minutes.ToString();
-        }
-
-        public String getHours()
-        {
-            return hours.ToString();
-        }
-
         public void changeTimeMode()
         {
             if(currentMode == Mode.changeHours)
@@ -56,14 +45,9 @@ namespace WatchOS
             }
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
+        private void timerClockTick(object sender, EventArgs e)
         {
             incrementMinutes();
-        }
-
-        private void Time_Load(object sender, EventArgs e)
-        {
-
         }
 
         public void incrementTime()

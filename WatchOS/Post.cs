@@ -14,7 +14,7 @@ namespace WatchOS
 {
     public class Post
     {
-        public string id;
+        private string id;
         private int voteStatus;
         private bool isFavourite;
 
@@ -40,12 +40,17 @@ namespace WatchOS
 
         public void favourite()
         {
-            isFavourite = isFavourite != true;
+            isFavourite = !isFavourite;
         }
 
         public int getVoteStatus()
         {
             return voteStatus;
+        }
+
+        public bool getIsFavourite()
+        {
+            return isFavourite;
         }
     }
 }

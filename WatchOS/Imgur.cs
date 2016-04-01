@@ -20,7 +20,7 @@ namespace WatchOS
     {
         private LinkedList<Post> posts = new LinkedList<Post>();
         private LinkedListNode<Post> currentPost;
-        private bool favauritesModeOn;
+        private bool favauritesModeOn = false;
 
         public Imgur()
         {
@@ -60,34 +60,37 @@ namespace WatchOS
 
         public void viewFavouritePosts()
         {
-            //itereren over elke post, favourite? dan showen in een form ofzo.
+            favauritesModeOn = !favauritesModeOn;
+
+            currentPost = posts.First;
+            updatePicture();
         }
 
         public void nextPost()
         {
-            currentPost = currentPost.Next;
-
-            if (currentPost == null)
-            {
-                currentPost = posts.First;
-            }
+            currentPost = currentPost.Next ?? posts.First;
 
             updatePicture();
         }
 
         public void previousPost()
         {
-            currentPost = currentPost.Previous;
+            currentPost = currentPost.Previous ?? posts.Last;
 
-            if (currentPost == null)
-            {
-                currentPost = posts.Last;
-            }
             updatePicture();
         }
 
         public void updatePicture()
         {
+            if (favauritesModeOn && !currentPost.Value.getIsFavourite())
+            {
+                if (posts.Count(post => post.getIsFavourite()) > 0)
+                {
+                    nextPost();
+                }
+                return;
+            }
+
             pictureBoxImage.Image = null;
             pictureBoxImage.LoadAsync(currentPost.Value.getUrl());
 
@@ -104,14 +107,11 @@ namespace WatchOS
                     break;
             }
 
+            lblFavourite.Text = currentPost.Value.getIsFavourite() ? "This post is \r\nin your favourites" : "";
+
             Console.WriteLine(currentPost.Value.getUrl());
         }
-
-        public Post getCurrentPost()
-        {
-            return currentPost.Value;
-        }
-
+        
         public void upvoteCurrentPost()
         {
             currentPost.Value.upvote();
@@ -119,13 +119,10 @@ namespace WatchOS
             switch (currentPost.Value.getVoteStatus())
             {
                 case 1:
-                    lblVote.Text = "Status: Upvoted!";
-                    break;
-                case -1:
-                    lblVote.Text = "Status: Downvoted!";
+                    lblVote.Invoke((MethodInvoker) (() => lblVote.Text = "Status: Upvoted!"));
                     break;
                 default:
-                    lblVote.Text = "Status: neutral";
+                    lblVote.Invoke((MethodInvoker)(() => lblVote.Text = "Status: neutral"));
                     break;
             }
         }
@@ -136,14 +133,11 @@ namespace WatchOS
 
             switch (currentPost.Value.getVoteStatus())
             {
-                case 1:
-                    lblVote.Text = "Status: Upvoted!";
-                    break;
                 case -1:
-                    lblVote.Text = "Status: Downvoted!";
+                    lblVote.Invoke((MethodInvoker)(() => lblVote.Text = "Status: Downvoted!"));
                     break;
                 default:
-                    lblVote.Text = "Status: neutral";
+                    lblVote.Invoke((MethodInvoker)(() => lblVote.Text = "Status: neutral"));
                     break;
             }
         }
@@ -151,6 +145,10 @@ namespace WatchOS
         public void favouriteCurrentPost()
         {
             currentPost.Value.favourite();
+            lblFavourite.Invoke(
+                (MethodInvoker)
+                    (() =>
+                        lblFavourite.Text = currentPost.Value.getIsFavourite() ? "This post is \r\nin your favourites" : ""));
         }
     }
 }

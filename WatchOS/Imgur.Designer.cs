@@ -30,6 +30,7 @@
         {
             this.pictureBoxImage = new System.Windows.Forms.PictureBox();
             this.lblVote = new System.Windows.Forms.Label();
+            this.lblFavourite = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxImage)).BeginInit();
             this.SuspendLayout();
             // 
@@ -51,11 +52,20 @@
             this.lblVote.Size = new System.Drawing.Size(0, 20);
             this.lblVote.TabIndex = 1;
             // 
+            // lblFavourite
+            // 
+            this.lblFavourite.AutoSize = true;
+            this.lblFavourite.Location = new System.Drawing.Point(834, 114);
+            this.lblFavourite.Name = "lblFavourite";
+            this.lblFavourite.Size = new System.Drawing.Size(0, 20);
+            this.lblFavourite.TabIndex = 1;
+            // 
             // Imgur
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1023, 834);
+            this.Controls.Add(this.lblFavourite);
             this.Controls.Add(this.lblVote);
             this.Controls.Add(this.pictureBoxImage);
             this.Location = new System.Drawing.Point(300, 50);
@@ -73,5 +83,6 @@
 
         private System.Windows.Forms.PictureBox pictureBoxImage;
         private System.Windows.Forms.Label lblVote;
+        private System.Windows.Forms.Label lblFavourite;
     }
 }

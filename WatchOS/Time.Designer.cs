@@ -33,7 +33,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.clockTick = new System.Windows.Forms.Timer(this.components);
             this.lblCurrentMode = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -81,11 +81,11 @@
             this.label4.TabIndex = 3;
             this.label4.Text = ":";
             // 
-            // timer1
+            // clockTick
             // 
-            this.timer1.Enabled = true;
-            this.timer1.Interval = 6000;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            this.clockTick.Enabled = true;
+            this.clockTick.Interval = 60000;
+            this.clockTick.Tick += new System.EventHandler(this.timerClockTick);
             // 
             // lblCurrentMode
             // 
@@ -112,7 +112,6 @@
             this.Name = "Time";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Time";
-            this.Load += new System.EventHandler(this.Time_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -124,7 +123,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Timer clockTick;
         private System.Windows.Forms.Label lblCurrentMode;
     }
 }
